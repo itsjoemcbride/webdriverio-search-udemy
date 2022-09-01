@@ -138,7 +138,7 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: "bdd",
-    timeout: 60000,
+    timeout: 9999999999999, // default 60000
   },
   //
   // =====
@@ -193,6 +193,7 @@ exports.config = {
    * @param {Object}         browser      instance of created browser/device session
    */
   // before: function (capabilities, specs) {
+  //   // browser.setTimeout({ pageLoad: 10000 });
   // },
   /**
    * Runs before a WebdriverIO command gets executed.

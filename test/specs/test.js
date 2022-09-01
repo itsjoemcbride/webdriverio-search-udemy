@@ -8,7 +8,7 @@
 // Task: Automate the above scenario given using JS and any tool (WebdriverIO or Selenium). The Project should be shared as a GitHub project. Each automation step should have assertions''
 
 describe("Assessment", function () {
-  it("Opens Google", async function () {
+  it("searches google for the udemy course", async function () {
     // 1. Go to google site
     await browser.url("http://www.google.com");
 
@@ -22,24 +22,43 @@ describe("Assessment", function () {
     // 2. Search 'Test Automation Learning'
     const searchBar = $("input");
     await searchBar.click();
-    await browser.keys("Test Automation Learning");
-    const searchBtn = $("aria/Google Search");
-    await searchBtn.click();
-    await title = await browser.getTitle();
+    await browser.keys("Test Automation Learning\uE007");
+    // const searchBtn = $("aria/Google Search");
+    // await searchBtn.click();
+
+    await browser.pause(3000); // Wait for google search results to load
+
+    title = await browser.getTitle();
     await expect(title).toContain("Test Automation Learning");
 
     // 3. Select the link with Udemy course
     const udemyLink = $("a*=Udemy");
     await udemyLink.click();
-    await title = await browser.getTitle();
+
+    await browser.pause(3000); // Wait for udemy to load
+
+    title = await browser.getTitle();
     await expect(title).toContain("Udemy");
 
     // 5. Search for BDD with Cucumber
     const udemySearch = $("[role=combobox]");
     await udemySearch.click();
-    await udemySearch.keys("BDD with Cucumber");
+    await udemySearch.keys("BDD with Cucumber\uE007");
+
+    await browser.pause(3 * 60000); // Wait for Udemy search results to load a(leave time to do captcha)
+
+    // const udemySearchBtn = $("aria/Submit search");
+    // await udemySearchBtn.click();
     // TODO : Write assertion for this step
 
-    //6. Click on the course with highest rating from the list of search results
+    // Sometimes Udemy asks for a capture to be completed here, maybe add a feature to pass it to a manual user?
+
+    // 6. Click on the course with highest rating from the list of search results
+    const selectBox = await $("name='sort'");
+    await selectBox.click();
+    const filter = selectBox.selectByVisibleText("Highest Rated");
+    await filter.click();
+
+    // await selectBox.selectByVisibleText("Highest Rated");
   });
 });
