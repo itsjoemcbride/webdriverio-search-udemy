@@ -26,7 +26,7 @@ describe("Assessment", function () {
     // const searchBtn = $("aria/Google Search");
     // await searchBtn.click();
 
-    await browser.pause(3000); // Wait for google search results to load
+    // await browser.pause(3000); // Wait for google search results to load
 
     title = await browser.getTitle();
     await expect(title).toContain("Test Automation Learning");
@@ -35,7 +35,7 @@ describe("Assessment", function () {
     const udemyLink = $("a*=Udemy");
     await udemyLink.click();
 
-    await browser.pause(3000); // Wait for udemy to load
+    // await browser.pause(3000); // Wait for udemy to load
 
     title = await browser.getTitle();
     await expect(title).toContain("Udemy");
@@ -45,7 +45,7 @@ describe("Assessment", function () {
     await udemySearch.click();
     await udemySearch.keys("BDD with Cucumber\uE007");
 
-    await browser.pause(3 * 60000); // Wait for Udemy search results to load a(leave time to do captcha)
+    await browser.pause(8 * 60000); // Wait for Udemy search results to load a(leave time to do captcha)
 
     // const udemySearchBtn = $("aria/Submit search");
     // await udemySearchBtn.click();
@@ -54,6 +54,7 @@ describe("Assessment", function () {
     // Sometimes Udemy asks for a capture to be completed here, maybe add a feature to pass it to a manual user?
 
     // 6. Click on the course with highest rating from the list of search results
+
     const selectBox = await $("name='sort'");
     await selectBox.click();
     const filter = selectBox.selectByVisibleText("Highest Rated");
@@ -61,4 +62,16 @@ describe("Assessment", function () {
 
     // await selectBox.selectByVisibleText("Highest Rated");
   });
+
+  // it("filters the results and selects the most highly rated one", async function () {
+  //   // 6. Click on the course with highest rating from the list of search results
+  //   await browser.url(
+  //     "https://www.udemy.com/courses/search/?src=ukw&q=BDD+with+Cucumber"
+  //   );
+
+  //   const selectBox = await $("[name=sort]");
+
+  //   await selectBox.selectByVisibleText("Highest Rated");
+  //   await browser.pause(5000);
+  // });
 });
