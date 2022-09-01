@@ -12,12 +12,19 @@ describe("Assessment", function () {
     // 1. Go to google site
     await browser.url("http://www.google.com");
 
-    const title = await browser.getTitle();
+    let title = await browser.getTitle();
 
     expect(title).toEqual("Google");
 
     // Reject cookies and 2. Search 'Test Automation Learning'
     const cookieBtn = $("div=Reject all");
     await cookieBtn.click();
+    const searchBar = $("input");
+    await searchBar.click();
+    await browser.keys("Test Automation Learning");
+    const searchBtn = $("aria/Google Search");
+    await searchBtn.click();
+    title = await browser.getTitle();
+    await expect(title).toContain("Test Automation Learning");
   });
 });
