@@ -16,9 +16,10 @@ describe("Assessment", function () {
 
     expect(title).toEqual("Google");
 
-    // Reject cookies and 2. Search 'Test Automation Learning'
+    // Reject cookies
     const cookieBtn = $("div=Reject all");
     await cookieBtn.click();
+    // 2. Search 'Test Automation Learning'
     const searchBar = $("input");
     await searchBar.click();
     await browser.keys("Test Automation Learning");
@@ -26,5 +27,11 @@ describe("Assessment", function () {
     await searchBtn.click();
     title = await browser.getTitle();
     await expect(title).toContain("Test Automation Learning");
+
+    // 3. Select the link with Udemy course
+    const udemyLink = $("a*=Udemy");
+    await udemyLink.click();
+    title = await browser.getTitle();
+    await expect(title).toContain("Udemy");
   });
 });
