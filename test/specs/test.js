@@ -25,13 +25,21 @@ describe("Assessment", function () {
     await browser.keys("Test Automation Learning");
     const searchBtn = $("aria/Google Search");
     await searchBtn.click();
-    title = await browser.getTitle();
+    await title = await browser.getTitle();
     await expect(title).toContain("Test Automation Learning");
 
     // 3. Select the link with Udemy course
     const udemyLink = $("a*=Udemy");
     await udemyLink.click();
-    title = await browser.getTitle();
+    await title = await browser.getTitle();
     await expect(title).toContain("Udemy");
+
+    // 5. Search for BDD with Cucumber
+    const udemySearch = $("[role=combobox]");
+    await udemySearch.click();
+    await udemySearch.keys("BDD with Cucumber");
+    // TODO : Write assertion for this step
+
+    //6. Click on the course with highest rating from the list of search results
   });
 });
