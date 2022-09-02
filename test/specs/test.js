@@ -45,20 +45,24 @@ describe("Assessment", function () {
     await udemySearch.click();
     await udemySearch.keys("BDD with Cucumber\uE007");
 
-    await browser.pause(8 * 60000); // Wait for Udemy search results to load a(leave time to do captcha)
+    // await browser.pause(15 * 60000); // Wait for Udemy search results to load a(leave time to do captcha)
 
     // const udemySearchBtn = $("aria/Submit search");
     // await udemySearchBtn.click();
     // TODO : Write assertion for this step
 
-    // Sometimes Udemy asks for a capture to be completed here, maybe add a feature to pass it to a manual user?
+    // Sometimes Udemy asks for a CAPTCHA to be completed here, maybe add a feature to pass it to a manual user?
 
     // 6. Click on the course with highest rating from the list of search results
 
-    const selectBox = await $("name='sort'");
+    const selectBox = await $("input[name='sort']");
     await selectBox.click();
-    const filter = selectBox.selectByVisibleText("Highest Rated");
-    await filter.click();
+    await selectBox.selectByVisibleText("Highest Rated");
+
+    const topResult = await $("//h3/a");
+    topResult.click();
+
+    // TODO: Assert that we have landed on the right page
 
     // await selectBox.selectByVisibleText("Highest Rated");
   });
