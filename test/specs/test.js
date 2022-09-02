@@ -28,7 +28,7 @@ describe("Assessment", function () {
     // 3. Select the link with Udemy course
     const udemyLink = $("a*=Udemy");
     await udemyLink.click();
-    // Assert that we are on the right page
+    // 4. Assert that we are on the right page
     title = await browser.getTitle();
     await expect(title).toContain("Udemy");
 
