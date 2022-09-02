@@ -36,7 +36,8 @@ describe("Assessment", function () {
     const udemySearch = $("[role=combobox]");
     await udemySearch.click();
     await udemySearch.keys("BDD with Cucumber\uE007");
-    // TODO : Write assertion for this step
+    // Assert that we are on the right page
+    expect(browser).toHaveUrlContaining("BDD+with+Cucumber");
 
     // Sometimes the test halts here as a result of a CAPTCHA on the Udemy website. In reality, testers would usually have access to a bypass API in this scenario. A pause statement was attempted here so that a human could carry out the captcha, but the CAPTCHA would never resolve.
 
@@ -46,6 +47,10 @@ describe("Assessment", function () {
     await selectBox.selectByVisibleText("Highest Rated");
     const topResult = await $("//h3/a");
     topResult.click();
-    // TODO: Assert that we have landed on the right page
+    // Assert that we have landed on the right page
+    title = await browser.getTitle();
+    await expect(title).toContain(
+      "Learn to Create BDD Framework using Cucumber and Java"
+    );
   });
 });
