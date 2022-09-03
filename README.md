@@ -28,6 +28,8 @@ Once my development environment was set up to aid me on this project, I could be
 - How can I **assert** that the actions I have carried out have the desired outcome?
 
 Thinking about finding solutions to each step in this way empowers me, as a tester, to ensure that the tests I have written fulfil requirements, in a robust, repeatable and scalable way.
+
+Additionally, many of the steps given as part of the brief were broken down into seperate tests. In practical terms, this means that if a change was to happen which caused a test to fail unexpectedly, you would be able to immediately tell where the breakage is.
 <br><br>
 
 <h2>Challenges</h2>
