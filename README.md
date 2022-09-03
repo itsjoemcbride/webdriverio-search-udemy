@@ -3,7 +3,7 @@ Assessment for FSB
 </h1>
 
 <h2> The Task </h2>
-As part of the application process, applicants were asked to write an automated test in [WebdriverIO](https://webdriver.io/) to the following brief.
+As part of the application process, applicants were asked to write an automated test in <a href="https://webdriver.io/">WebdriverIO</a> to the following brief.
 
 > Scenario:
 >
@@ -19,7 +19,7 @@ As part of the application process, applicants were asked to write an automated 
 <br>
 
 <h2> My Approach </h2>
-Given the tool for the job, WebdriverIO, I set out using [Visual Studio Code](https://code.visualstudio.com/) to write the script to carry out the tests procedurally. To make the code easier to work with, I decided to supplement my text editor with [ESLint](https://eslint.org/) and to aid with keeping the code formatting consistent, I selected [Prettier](https://prettier.io/).
+Given the tool for the job, WebdriverIO, I set out using <a href="https://code.visualstudio.com/">Visual Studio Code</a> to write the script to carry out the tests procedurally. To make the code easier to work with, I decided to supplement my text editor with <a href="https://eslint.org/">ESLint</a> and to aid with keeping the code formatting consistent, I selected <a href="https://prettier.io/">Prettier</a>.
 <br><br>
 Once my development environment was set up to aid me on this project, I could begin to tackle the problem at hand. Normally when tackling a larger problem, the easiest way to approach it is to break it into smaller stages. Fortunately for this task, the steps are already relatively small, though for each one three things need to be considered.
 
@@ -27,13 +27,13 @@ Once my development environment was set up to aid me on this project, I could be
 - What **act**ions do I need to perform in order to execute this step?
 - How can I **assert** that the actions I have carried out have the desired outcome?
 
-Thinking about finding solutions to each step in this way empowers me, as a tester, to ensure that the tests I have written fulfil requirements, in a robust, repeatable and scalable way.
+Thinking about finding solutions to each step in this way empowers me, as a tester, to ensure that the tests I have written fulfil requirements in a robust, repeatable and scalable way.
 
 Additionally, many of the steps given as part of the brief were broken down into seperate tests. In practical terms, this means that if a change was to happen which caused a test to fail unexpectedly, you would be able to immediately tell where the breakage is.
 <br><br>
 
 <h2>Challenges</h2>
-Many modern websites today are all faced with the same threat. Bots. Bots have many beneficial purposes, with automated testing perhaps being the most obvious of these. Additionally, bots can be used to crawl and index web pages for search engines, to make websites easier to discover by potential users. Conversely, bots can be used as part of a targeted attack in order to penetrate and access important data on a website. It may come as no surprise then, that many websites, such as one required for this task [Udemy](https://www.udemy.com/) uses measures like [hCaptcha](https://www.hcaptcha.com/) to protect their users from these risks.
+Many modern websites today are all faced with the same threat. Bots. Bots have many beneficial purposes, with automated testing perhaps being the most obvious of these. Additionally, bots can be used to crawl and index web pages for search engines, to make websites easier to discover by potential users. Conversely, bots can be used as part of a targeted attack in order to penetrate and access important data on a website. It may come as no surprise then, that many websites, such as one required for this task <a href="https://www.udemy.com/">Udemy</a> uses measures like <a href="https://www.hcaptcha.com/">hCaptcha</a> to protect their users from these risks.
 
 ![Example of a hCaptcha](https://media.discordapp.net/attachments/1012054236114206731/1015250497814409216/unknown.png?width=400&height=580)
 
