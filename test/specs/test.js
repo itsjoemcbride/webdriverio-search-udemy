@@ -20,7 +20,7 @@ describe("Assessment", function () {
 
   it("searches Google for 'Test Automation Learning'", async function () {
     // 2. Search 'Test Automation Learning'
-    const searchBar = $("input");
+    const searchBar = $("input[name=q]");
     await searchBar.click();
     await browser.keys("Test Automation Learning\uE007");
     // Assert that we are on the right page
@@ -39,7 +39,7 @@ describe("Assessment", function () {
 
   it("searches Udemy for 'BDD with Cucumber'", async function () {
     // 5. Search for BDD with Cucumber
-    const udemySearch = $("[role=combobox]");
+    const udemySearch = $("input[name=q]");
     await udemySearch.click();
     await udemySearch.keys("BDD with Cucumber\uE007");
     // Assert that we are on the right page
