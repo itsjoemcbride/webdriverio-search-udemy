@@ -50,10 +50,12 @@ describe("Assessment", function () {
 
   it("sorts the search results by 'Highest Rated' and selects the top result", async function () {
     // 6. Click on the course with highest rating from the list of search results
+    // Click on the dropdown and select "Highest Rated"
     const selectBox = await $("select[name='sort']");
     await selectBox.click();
     await selectBox.selectByVisibleText("Highest Rated");
-    const topResult = await $("//h3/a");
+    // Click on the link for the first course on the list
+    const topResult = await $("h3");
     await topResult.click();
     // Assert that we have landed on the right page
     const title = await browser.getTitle();
