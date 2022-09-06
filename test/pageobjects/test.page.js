@@ -19,7 +19,7 @@ class Test {
     return $("select[name='sort']");
   }
 
-  // This selector is questionable, but most search sites use h3 tags for their search results. Particularly Google and Udemy, so is sufficient for the tests we are running here.
+  // This selector is questionable, but most search sites use h3 tags for their search results. Particularly Google and Udemy, so this is sufficient for the tests we are running here. If this system didn't work for a future use-case, consider using a more relevant selector for that specific situation, or creating separate page files for different websites.
   get topResult() {
     return $("h3");
   }
