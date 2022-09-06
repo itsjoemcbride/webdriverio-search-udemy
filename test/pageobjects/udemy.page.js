@@ -8,7 +8,7 @@ class UdemyPage {
   }
 
   get topResult() {
-    return $("h3");
+    return $("h3 a");
   }
 }
 
