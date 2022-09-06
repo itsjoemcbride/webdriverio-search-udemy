@@ -6,22 +6,21 @@
 //  5. Search for BDD with Cucumber
 //  6.Click on the course with highest rating from the list of search results
 // Task: Automate the above scenario given using JS and any tool (WebdriverIO or Selenium). The Project should be shared as a GitHub project. Each automation step should have assertions''
+import Test from "../pageobjects/test.page";
 
 describe("Assessment", function () {
   it("goes to the Google website and rejects cookies", async function () {
     // 1. Go to google site
-    await browser.url("http://www.google.com");
+    await Test.open();
     const title = await browser.getTitle();
     expect(title).toEqual("Google");
     // Reject cookies
-    const cookieBtn = $("div=Reject all");
-    await cookieBtn.click();
+    await Test.rejectCookiesBtn.click();
   });
 
   it("searches Google for 'Test Automation Learning'", async function () {
     // 2. Search 'Test Automation Learning'
-    const searchBar = $("input[name=q]");
-    await searchBar.click();
+    await Test.searchBar.click();
     await browser.keys("Test Automation Learning\uE007");
     // Assert that we are on the right page
     const title = await browser.getTitle();
@@ -30,8 +29,7 @@ describe("Assessment", function () {
 
   it("selects the Google search result which is a Udemy course", async function () {
     // 3. Select the link with Udemy course
-    const udemyLink = $("a*=Udemy");
-    await udemyLink.click();
+    await Test.udemyLink.click();
     // 4. Assert that we are on the right page
     const title = await browser.getTitle();
     await expect(title).toContain("Udemy");
@@ -39,9 +37,8 @@ describe("Assessment", function () {
 
   it("searches Udemy for 'BDD with Cucumber'", async function () {
     // 5. Search for BDD with Cucumber
-    const udemySearch = $("input[name=q]");
-    await udemySearch.click();
-    await udemySearch.keys("BDD with Cucumber\uE007");
+    await Test.searchBar.click();
+    await Test.searchBar.keys("BDD with Cucumber\uE007");
     // Assert that we are on the right page
     expect(browser).toHaveUrlContaining("BDD+with+Cucumber");
   });
@@ -51,12 +48,10 @@ describe("Assessment", function () {
   it("sorts the search results by 'Highest Rated' and selects the top result", async function () {
     // 6. Click on the course with highest rating from the list of search results
     // Click on the dropdown and select "Highest Rated"
-    const selectBox = await $("select[name='sort']");
-    await selectBox.click();
-    await selectBox.selectByVisibleText("Highest Rated");
+    await Test.dropDown.click();
+    await Test.dropDown.selectByVisibleText("Highest Rated");
     // Click on the link for the first course on the list
-    const topResult = await $("h3");
-    await topResult.click();
+    await Test.topResult.click();
     // Assert that we have landed on the right page
     const title = await browser.getTitle();
     await expect(title).toContain(
