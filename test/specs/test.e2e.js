@@ -13,8 +13,7 @@ describe("Assessment", function () {
   it("goes to the Google website and rejects cookies", async function () {
     // 1. Go to google site
     await GooglePage.open();
-    const title = await browser.getTitle();
-    expect(title).toEqual("Google");
+    expect(browser).toHaveTitleContaining("Google");
     // Reject cookies
     await GooglePage.rejectCookiesBtn.click();
   });
@@ -24,16 +23,14 @@ describe("Assessment", function () {
     await GooglePage.searchBar.click();
     await browser.keys("Test Automation Learning\uE007");
     // Assert that we are on the right page
-    const title = await browser.getTitle();
-    await expect(title).toContain("Test Automation Learning");
+    await expect(browser).toHaveTitleContaining("Test Automation Learning");
   });
 
   it("selects the Google search result which is a Udemy course", async function () {
     // 3. Select the link with Udemy course
     await GooglePage.udemyLink.click();
     // 4. Assert that we are on the right page
-    const title = await browser.getTitle();
-    await expect(title).toContain("Udemy");
+    await expect(browser).toHaveTitleContaining("Udemy");
   });
 
   it("searches Udemy for 'BDD with Cucumber'", async function () {
@@ -54,8 +51,7 @@ describe("Assessment", function () {
     // Click on the link for the first course on the list
     await UdemyPage.topResult.click();
     // Assert that we have landed on the right page
-    const title = await browser.getTitle();
-    await expect(title).toContain(
+    await expect(browser).toHaveTitleContaining(
       "Learn to Create BDD Framework using Cucumber and Java"
     );
   });

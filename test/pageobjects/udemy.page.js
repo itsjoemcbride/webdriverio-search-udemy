@@ -8,7 +8,7 @@ class UdemyPage {
   }
 
   get topResult() {
-    return $("h3 a");
+    return $("h3 > a");
   }
 }
 
